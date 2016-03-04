@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MenueFilterDialog
+Bundle-SymbolicName: menueFilterDialog;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: menuefilterdialog.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ filterDesigns;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: common.filter

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="fsnavigation.NavigationView"
+            id="fsnavigation.view"
+            name="Tree Directory"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="main.perspective">
+         <view
+               id="fsnavigation.view"
+               minimized="false"
+               relationship="stack"
+               relative="main.perspective.left">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="fsnavigation.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="fsnavigation.commands.category"
+            id="fsnavigation.commands.SetBaseDirectory"
+            name="Set Base Directory">
+      </command>
+      <command
+            categoryId="fsnavigation.commands.category"
+            id="fsnavigation.commands.FSNavigationHistory"
+            name="FS Navigation History">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fsnavigation.handlers.SetBaseDirectory"
+            commandId="fsnavigation.commands.SetBaseDirectory">
+      </handler>
+      <handler
+            class="fsnavigation.handlers.FSNavigationHistory"
+            commandId="fsnavigation.commands.FSNavigationHistory">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fsnavigation.commands.SetBaseDirectory"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+      <key
+            commandId="fsnavigation.commands.FSNavigationHistory"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+7">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="fsnavigation.menus.FS Navigation"
+               label="FS Navigation"
+               mnemonic="M">
+            <command
+                  commandId="fsnavigation.commands.SetBaseDirectory"
+                  id="fsnavigation.menus.SetBaseDirectory"
+                  label="Set Base Directory"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="fsnavigation.toolbars.sampleToolbar">
+            <command
+                  commandId="fsnavigation.commands.SetBaseDirectory"
+                  icon="icons/sample.gif"
+                  id="fsnavigation.toolbars.SetBaseDirectory"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="fsnavigation.menus.FS Navigation"
+               label="FS Navigation"
+               mnemonic="M">
+            <command
+                  commandId="fsnavigation.commands.FSNavigationHistory"
+                  id="fsnavigation.menus.FSNavigtionHistory"
+                  label="FS Navigation History"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="fsnavigation.toolbars.sampleToolbar">
+            <command
+                  commandId="fsnavigation.commands.FSNavigationHistory"
+                  icon="icons/sample.gif"
+                  id="fsnavigation.toolbars.FSNavigationHistory"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

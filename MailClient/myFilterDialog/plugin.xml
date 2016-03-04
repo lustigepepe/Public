@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="myFilterDialog.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="myFilterDialog.commands.category"
+            id="myFilterDialog.commands.ConfigFilter"
+            name="Config Filter">
+      </command>
+      <command
+            categoryId="myFilterDialog.commands.category"
+            id="myFilterDialog.commands.ClearFilter"
+            name="Clear Filter">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="myfilterdialog.handlers.SetFilterDialog"
+            commandId="myFilterDialog.commands.ConfigFilter">
+      </handler>
+      <handler
+            class="myfilterdialog.handlers.ClearFilter"
+            commandId="myFilterDialog.commands.ClearFilter">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="myFilterDialog.commands.ConfigFilter"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+8">
+      </key>
+      <key
+            commandId="myFilterDialog.commands.ClearFilter"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+9">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="myFilterDialog.menus.myFilterDialog"
+               label="Filter"
+               mnemonic="M">
+            <command
+                  commandId="myFilterDialog.commands.ConfigFilter"
+                  id="myfilterdialog.handlers.SetFilterDialog"
+                  label="Config Filter"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="myFilterDialog.toolbars.sampleToolbar">
+            <command
+                  commandId="myFilterDialog.commands.ConfigFilter"
+                  icon="icons/sample.gif"
+                  id="myFilterDialog.toolbars.ConfigFilter"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="myFilterDialog.menus.myFilterDialog"
+               label="Filter"
+               mnemonic="M">
+            <command
+                  commandId="myFilterDialog.commands.ClearFilter"
+                  id="myFilterDialog.menus.ClearFilter"
+                  label="Clear Filter"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="myFilterDialog.toolbars.sampleToolbar">
+            <command
+                  commandId="myFilterDialog.commands.ClearFilter"
+                  icon="icons/sample.gif"
+                  id="myFilterDialog.toolbars.ClearFilter"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="imapnavigation.NavigationView"
+            id="imapnavigation.view"
+            name="IMAP Navigation"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="main.perspective">
+         <view
+               id="imapnavigation.view"
+               minimized="false"
+               relationship="stack"
+               relative="main.perspective.left">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="imapnavigation.commands.IMAP"
+            name="IMAP ">
+      </category>
+      <command
+            categoryId="imapnavigation.commands.IMAP"
+            id="imapnavigation.commands.IMAPNavigation"
+            name="IMAP Navigation">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="imapnavigation.handlers.IMAPNavigation "
+            commandId="imapnavigation.commands.IMAPNavigation">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="imapnavigation.commands.IMAPNavigation"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="F1">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               icon="Synchronize"
+               id="imapnavigation.menus.sampleMenu"
+               label="IMAP Navigation "
+               mnemonic="M">
+            <command
+                  commandId="imapnavigation.commands.IMAPNavigation "
+                  id="imapnavigation.menus.sampleCommand"
+                  label="Synchronize"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="imapnavigation.toolbars.sampleToolbar">
+            <command
+                  commandId="imapnavigation.commands.IMAPNavigation "
+                  icon="icons/sample.gif"
+                  id="imapnavigation.toolbars.sampleCommand"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
