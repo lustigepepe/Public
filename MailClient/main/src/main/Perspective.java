@@ -57,7 +57,7 @@ import org.eclipse.ui.IPerspectiveFactory;
  * 
  * </p>
  * 
- * @author Siamak Haschemi
+ * @author Hagen
  */
 public class Perspective implements IPerspectiveFactory {
   private static final String PERSPECTIVE_ID = Activator.PLUGIN_ID + ".perspective";
